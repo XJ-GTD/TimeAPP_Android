@@ -1,0 +1,31 @@
+{
+  "android": {
+      "debug": {
+          "keystore": "../android/mwxing_debug.keystore",
+          "storePassword": "Xj123456*",
+          "alias": "mwxing_debug.keystore",
+          "password" : "Xj123456*",
+          "keystoreType": "JKS"
+      },
+      "release": {
+          "keystore": "../android/mwxing-release.keystore",
+          "storePassword": "MWXing1234*",
+          "alias": "mwxing-release.keystore",
+          "password" : "MWXing1234*",
+          "keystoreType": "JKS"
+      }
+  },
+  "ios": {
+    "debug": {
+      "codeSignIdentity": "iPhone Distribution: Jinyang Zhang (D5A8L43W8A)",
+      "provisioningProfile": "e05525bd-93e1-45da-bcf5-e1d7c04ddbdc",
+      "packageType": "ad-hoc",
+      "automaticProvisioning": true,
+      "buildFlag": [
+          "EMBEDDED_CONTENT_CONTAINS_SWIFT = YES",
+          "ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES=NO",
+          "LD_RUNPATH_SEARCH_PATHS = \"@executable_path/Frameworks\""
+      ]
+    }
+  }
+}
