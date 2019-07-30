@@ -284,6 +284,7 @@ dependencies {
     compile 'com.android.support:support-v4:26.+'
     // SUB-PROJECT DEPENDENCIES END
     compile 'com.huawei.android.hms:push:2.6.3.306'
+    implementation 'com.rabbitmq:amqp-client:4.11.2'
 }
 
 def promptForReleaseKeyPassword() {
