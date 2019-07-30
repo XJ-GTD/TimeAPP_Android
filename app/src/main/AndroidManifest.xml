@@ -34,6 +34,11 @@
             </intent-filter>
         </service>
 
+        <service android:enabled="true" android:exported="false" android:name="com.baidu.speech.aidl.EventRecognitionService" android:process=":EventRecognitionService">
+        </service>
+
+        <service android:enabled="true" android:exported="false" android:name="com.xj.ionic.service.MQService">
+        </service>
 
 
         <service android:enabled="true" android:exported="true" android:name="cn.jpush.android.service.DaemonService" android:process=":DaemonService" >
@@ -169,18 +174,18 @@
                     android:value="androidhwext:style/Theme.Emui.Translucent" />
         </activity>
 
-        <!-- 接入HMSSDK 游戏需要注册的activity | Activity to register when accessing HMSSDK game module using hmsagent code-->
-        <activity
-                android:name="com.huawei.appmarket.component.buoycircle.impl.delegete.BuoyBridgeActivity"
-                android:configChanges="orientation|locale|screenSize|layoutDirection|fontScale"
-                android:excludeFromRecents="true"
-                android:exported="false"
-                android:hardwareAccelerated="true"
-                android:theme="@android:style/Theme.Translucent">
-            <meta-data
-                    android:name="hwc-theme"
-                    android:value="androidhwext:style/Theme.Emui.Translucent" />
-        </activity>
+        <!--&lt;!&ndash; 接入HMSSDK 游戏需要注册的activity | Activity to register when accessing HMSSDK game module using hmsagent code&ndash;&gt;-->
+        <!--<activity-->
+                <!--android:name="com.huawei.appmarket.component.buoycircle.impl.delegete.BuoyBridgeActivity"-->
+                <!--android:configChanges="orientation|locale|screenSize|layoutDirection|fontScale"-->
+                <!--android:excludeFromRecents="true"-->
+                <!--android:exported="false"-->
+                <!--android:hardwareAccelerated="true"-->
+                <!--android:theme="@android:style/Theme.Translucent">-->
+            <!--<meta-data-->
+                    <!--android:name="hwc-theme"-->
+                    <!--android:value="androidhwext:style/Theme.Emui.Translucent" />-->
+        <!--</activity>-->
 
 
 

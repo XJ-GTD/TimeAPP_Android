@@ -87,6 +87,10 @@ public class MyTts {
 
     }
 
+    public void setListener(SpeechSynthesizerListener listener){
+        mSpeechSynthesizer.setListener(listener);
+    }
+
 
 
     public void speak(String Text) {

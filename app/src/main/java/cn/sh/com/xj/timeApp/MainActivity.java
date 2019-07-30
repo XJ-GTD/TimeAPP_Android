@@ -19,26 +19,14 @@
 
 package cn.sh.com.xj.timeApp;
 
-import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.AlarmClock;
-import cn.jpush.android.ui.PushActivity;
 import com.huawei.android.hms.agent.HMSAgent;
 import com.huawei.android.hms.agent.common.handler.ConnectHandler;
 import com.huawei.android.hms.agent.push.handler.GetTokenHandler;
-import com.huawei.hms.support.api.push.TokenResult;
 import org.apache.cordova.CordovaActivity;
-
-import java.util.Calendar;
-import java.util.Date;
 
 public class MainActivity extends CordovaActivity
 {
-
-    public MainActivity(){
-       System.out.println("MainActivityMainActivityMainActivityMainActivity");
-    }
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -57,6 +45,9 @@ public class MainActivity extends CordovaActivity
 
             }
         });
+
+//
+
 
 //        Calendar cl = Calendar.getInstance();
 //        cl.add(Calendar.SECOND,60);
@@ -135,4 +126,5 @@ public class MainActivity extends CordovaActivity
         // Set by <content src="index.html" /> in config.xml
         loadUrl(launchUrl);
     }
+
 }

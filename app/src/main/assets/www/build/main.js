@@ -7211,67 +7211,62 @@ var AssistantService = (function () {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (this.listening)
-                            return [2 /*return*/];
-                        if (!this.utilService.isMobile()) {
-                            return [2 /*return*/];
-                        }
-                        this.listening = true;
-                        this.stopSpeak(false);
-                        this.stopWakeUp();
-                        this.emitService.emitListener(true);
-                        this.feedbackService.vibrate();
-                        return [4 /*yield*/, cordova.plugins.XjBaiduSpeech.startListen(function (result) { return __awaiter(_this, void 0, void 0, function () {
-                                var base64File, audioPro;
-                                return __generator(this, function (_a) {
-                                    switch (_a.label) {
-                                        case 0:
-                                            this.emitService.emitImmediately(result.text);
-                                            if (!result.finish) {
-                                                return [2 /*return*/];
-                                            }
-                                            this.stopListenAudio();
-                                            return [4 /*yield*/, this.file.readAsDataURL(this.mp3Path, this.mp3Name)];
-                                        case 1:
-                                            base64File = _a.sent();
-                                            audioPro = new __WEBPACK_IMPORTED_MODULE_2__restful_aibutlersev__["b" /* AudioPro */]();
-                                            audioPro.d.vb64 = base64File;
-                                            audioPro.c.client.time = __WEBPACK_IMPORTED_MODULE_3_moment__().valueOf();
-                                            audioPro.c.client.cxt = __WEBPACK_IMPORTED_MODULE_5__config_data_config__["a" /* DataConfig */].wsContext;
-                                            audioPro.c.client.option = __WEBPACK_IMPORTED_MODULE_5__config_data_config__["a" /* DataConfig */].wsWsOpt;
-                                            audioPro.c.client.processor = __WEBPACK_IMPORTED_MODULE_5__config_data_config__["a" /* DataConfig */].wsWsProcessor;
-                                            audioPro.c.server = __WEBPACK_IMPORTED_MODULE_5__config_data_config__["a" /* DataConfig */].wsServerContext;
-                                            return [4 /*yield*/, this.aibutlerRestful.postaudio(audioPro)];
-                                        case 2:
-                                            _a.sent();
-                                            return [2 /*return*/, result];
-                                    }
-                                });
-                            }); }, function (error) { return __awaiter(_this, void 0, void 0, function () {
-                                var _this = this;
-                                return __generator(this, function (_a) {
-                                    this.stopListenAudio();
-                                    setTimeout(function () { return __awaiter(_this, void 0, void 0, function () {
-                                        var text;
-                                        return __generator(this, function (_a) {
-                                            switch (_a.label) {
-                                                case 0: return [4 /*yield*/, this.getSpeakText(__WEBPACK_IMPORTED_MODULE_5__config_data_config__["a" /* DataConfig */].FF)];
-                                                case 1:
-                                                    text = _a.sent();
-                                                    this.speakText(text);
-                                                    return [2 /*return*/, text];
-                                            }
-                                        });
-                                    }); }, 100);
-                                    return [2 /*return*/];
-                                });
-                            }); })];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
+                if (this.listening)
+                    return [2 /*return*/];
+                if (!this.utilService.isMobile()) {
+                    return [2 /*return*/];
                 }
+                this.listening = true;
+                this.stopSpeak(false);
+                this.stopWakeUp();
+                this.emitService.emitListener(true);
+                this.feedbackService.vibrate();
+                cordova.plugins.XjBaiduSpeech.startListen(function (result) { return __awaiter(_this, void 0, void 0, function () {
+                    var base64File, audioPro;
+                    return __generator(this, function (_a) {
+                        switch (_a.label) {
+                            case 0:
+                                this.emitService.emitImmediately(result.text);
+                                if (!result.finish) {
+                                    return [2 /*return*/];
+                                }
+                                this.stopListenAudio();
+                                return [4 /*yield*/, this.file.readAsDataURL(this.mp3Path, this.mp3Name)];
+                            case 1:
+                                base64File = _a.sent();
+                                audioPro = new __WEBPACK_IMPORTED_MODULE_2__restful_aibutlersev__["b" /* AudioPro */]();
+                                audioPro.d.vb64 = base64File;
+                                audioPro.c.client.time = __WEBPACK_IMPORTED_MODULE_3_moment__().valueOf();
+                                audioPro.c.client.cxt = __WEBPACK_IMPORTED_MODULE_5__config_data_config__["a" /* DataConfig */].wsContext;
+                                audioPro.c.client.option = __WEBPACK_IMPORTED_MODULE_5__config_data_config__["a" /* DataConfig */].wsWsOpt;
+                                audioPro.c.client.processor = __WEBPACK_IMPORTED_MODULE_5__config_data_config__["a" /* DataConfig */].wsWsProcessor;
+                                audioPro.c.server = __WEBPACK_IMPORTED_MODULE_5__config_data_config__["a" /* DataConfig */].wsServerContext;
+                                return [4 /*yield*/, this.aibutlerRestful.postaudio(audioPro)];
+                            case 2:
+                                _a.sent();
+                                return [2 /*return*/, result];
+                        }
+                    });
+                }); }, function (error) { return __awaiter(_this, void 0, void 0, function () {
+                    var _this = this;
+                    return __generator(this, function (_a) {
+                        this.stopListenAudio();
+                        setTimeout(function () { return __awaiter(_this, void 0, void 0, function () {
+                            var text;
+                            return __generator(this, function (_a) {
+                                switch (_a.label) {
+                                    case 0: return [4 /*yield*/, this.getSpeakText(__WEBPACK_IMPORTED_MODULE_5__config_data_config__["a" /* DataConfig */].FF)];
+                                    case 1:
+                                        text = _a.sent();
+                                        this.speakText(text);
+                                        return [2 /*return*/, text];
+                                }
+                            });
+                        }); }, 100);
+                        return [2 /*return*/];
+                    });
+                }); });
+                return [2 /*return*/];
             });
         });
     };
@@ -9769,7 +9764,7 @@ var WebsocketService = (function () {
         this.messages = 0;
         this.workqueue = __WEBPACK_IMPORTED_MODULE_4_async_dist_async_js__["queue"](function (_a, callback) {
             var message = _a.message, index = _a.index;
-            console.log("******************ws  queue:");
+            console.log("******************ws  queue:" + _this.queue);
             _this.dispatchService.dispatch(message).then(function (data) {
                 callback();
             }).catch(function (data) {
@@ -15262,13 +15257,13 @@ var map = {
 		473
 	],
 	"../pages/hl/hl.module": [
-		476
-	],
-	"../pages/log/log.module": [
 		474
 	],
-	"../pages/lp/lp.module": [
+	"../pages/log/log.module": [
 		475
+	],
+	"../pages/lp/lp.module": [
+		476
 	],
 	"../pages/ls/ls.module": [
 		477
@@ -15283,19 +15278,19 @@ var map = {
 		481
 	],
 	"../pages/pd/pd.module": [
-		483
+		482
 	],
 	"../pages/pf/pf.module": [
-		482
+		483
 	],
 	"../pages/pl/pl.module": [
 		484
 	],
 	"../pages/ps/ps.module": [
-		486
+		485
 	],
 	"../pages/r/r.module": [
-		485
+		486
 	],
 	"../pages/ss/ss.module": [
 		487
@@ -26410,6 +26405,48 @@ var HPageModule = (function () {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HlPageModule", function() { return HlPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__hl__ = __webpack_require__(434);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__hl_service__ = __webpack_require__(607);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+var HlPageModule = (function () {
+    function HlPageModule() {
+    }
+    HlPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__hl__["a" /* HlPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__hl__["a" /* HlPage */]),
+            ],
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_3__hl_service__["a" /* HlService */],
+            ],
+        })
+    ], HlPageModule);
+    return HlPageModule;
+}());
+
+//# sourceMappingURL=hl.module.js.map
+
+/***/ }),
+/* 475 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LogPageModule", function() { return LogPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
@@ -26443,7 +26480,7 @@ var LogPageModule = (function () {
 //# sourceMappingURL=log.module.js.map
 
 /***/ }),
-/* 475 */
+/* 476 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -26486,48 +26523,6 @@ var LpPageModule = (function () {
 }());
 
 //# sourceMappingURL=lp.module.js.map
-
-/***/ }),
-/* 476 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HlPageModule", function() { return HlPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__hl__ = __webpack_require__(434);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__hl_service__ = __webpack_require__(607);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-var HlPageModule = (function () {
-    function HlPageModule() {
-    }
-    HlPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__hl__["a" /* HlPage */],
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__hl__["a" /* HlPage */]),
-            ],
-            providers: [
-                __WEBPACK_IMPORTED_MODULE_3__hl_service__["a" /* HlService */],
-            ],
-        })
-    ], HlPageModule);
-    return HlPageModule;
-}());
-
-//# sourceMappingURL=hl.module.js.map
 
 /***/ }),
 /* 477 */
@@ -26755,6 +26750,48 @@ var PcPageModule = (function () {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PdPageModule", function() { return PdPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pd__ = __webpack_require__(430);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pd_service__ = __webpack_require__(432);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+var PdPageModule = (function () {
+    function PdPageModule() {
+    }
+    PdPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__pd__["a" /* PdPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__pd__["a" /* PdPage */]),
+            ],
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_3__pd_service__["a" /* PdService */],
+            ],
+        })
+    ], PdPageModule);
+    return PdPageModule;
+}());
+
+//# sourceMappingURL=pd.module.js.map
+
+/***/ }),
+/* 483 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PfPageModule", function() { return PfPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
@@ -26793,48 +26830,6 @@ var PfPageModule = (function () {
 }());
 
 //# sourceMappingURL=pf.module.js.map
-
-/***/ }),
-/* 483 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PdPageModule", function() { return PdPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pd__ = __webpack_require__(430);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pd_service__ = __webpack_require__(432);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-var PdPageModule = (function () {
-    function PdPageModule() {
-    }
-    PdPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__pd__["a" /* PdPage */],
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__pd__["a" /* PdPage */]),
-            ],
-            providers: [
-                __WEBPACK_IMPORTED_MODULE_3__pd_service__["a" /* PdService */],
-            ],
-        })
-    ], PdPageModule);
-    return PdPageModule;
-}());
-
-//# sourceMappingURL=pd.module.js.map
 
 /***/ }),
 /* 484 */
@@ -26884,48 +26879,6 @@ var PlPageModule = (function () {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RPageModule", function() { return RPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__r__ = __webpack_require__(425);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__r_service__ = __webpack_require__(426);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-var RPageModule = (function () {
-    function RPageModule() {
-    }
-    RPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__r__["a" /* RPage */],
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__r__["a" /* RPage */]),
-            ],
-            providers: [
-                __WEBPACK_IMPORTED_MODULE_3__r_service__["a" /* RService */],
-            ],
-        })
-    ], RPageModule);
-    return RPageModule;
-}());
-
-//# sourceMappingURL=r.module.js.map
-
-/***/ }),
-/* 486 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PsPageModule", function() { return PsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
@@ -26961,6 +26914,48 @@ var PsPageModule = (function () {
 }());
 
 //# sourceMappingURL=ps.module.js.map
+
+/***/ }),
+/* 486 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RPageModule", function() { return RPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__r__ = __webpack_require__(425);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__r_service__ = __webpack_require__(426);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+var RPageModule = (function () {
+    function RPageModule() {
+    }
+    RPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__r__["a" /* RPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__r__["a" /* RPage */]),
+            ],
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_3__r_service__["a" /* RService */],
+            ],
+        })
+    ], RPageModule);
+    return RPageModule;
+}());
+
+//# sourceMappingURL=r.module.js.map
 
 /***/ }),
 /* 487 */
@@ -27287,22 +27282,22 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__pages_gc_gc_module__ = __webpack_require__(471);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__pages_gl_gl_module__ = __webpack_require__(472);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__pages_h_h_module__ = __webpack_require__(473);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__pages_hl_hl_module__ = __webpack_require__(476);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__pages_lp_lp_module__ = __webpack_require__(475);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__pages_hl_hl_module__ = __webpack_require__(474);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__pages_lp_lp_module__ = __webpack_require__(476);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__pages_ls_ls_module__ = __webpack_require__(477);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_71__pages_m_m_module__ = __webpack_require__(478);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_72__pages_p_p_module__ = __webpack_require__(480);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_73__pages_pc_pc_module__ = __webpack_require__(481);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_74__pages_pd_pd_module__ = __webpack_require__(483);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_75__pages_pf_pf_module__ = __webpack_require__(482);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_74__pages_pd_pd_module__ = __webpack_require__(482);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_75__pages_pf_pf_module__ = __webpack_require__(483);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_76__pages_pl_pl_module__ = __webpack_require__(484);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_77__pages_ps_ps_module__ = __webpack_require__(486);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_78__pages_r_r_module__ = __webpack_require__(485);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_77__pages_ps_ps_module__ = __webpack_require__(485);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_78__pages_r_r_module__ = __webpack_require__(486);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_79__pages_ss_ss_module__ = __webpack_require__(487);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_80__pages_tdl_tdl_module__ = __webpack_require__(479);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_81__pipes_pipes_module__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_82__components_confirmbox_confirmbox_module__ = __webpack_require__(455);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_83__pages_log_log_module__ = __webpack_require__(474);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_83__pages_log_log_module__ = __webpack_require__(475);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_84__pages_at_at_module__ = __webpack_require__(459);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_85__pages_da_da_module__ = __webpack_require__(462);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_86__pages_dr_dr_module__ = __webpack_require__(468);
@@ -27433,8 +27428,8 @@ var AppModule = (function () {
                         { loadChildren: '../components/ai/answer/ai.module#AiComponentModule', name: 'AiComponent', segment: 'ai', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../components/ai/input/input.module#InputComponentModule', name: 'InputComponent', segment: 'input', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../components/ai/point/point.module#PointComponentModule', name: 'PointComponent', segment: 'point', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../components/confirmbox/confirmbox.module#ConfirmboxComponentModule', name: 'ConfirmboxComponent', segment: 'confirmbox', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../components/backComponent/back.module#BackComponentModule', name: 'BackComponent', segment: 'back', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../components/confirmbox/confirmbox.module#ConfirmboxComponentModule', name: 'ConfirmboxComponent', segment: 'confirmbox', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../components/loading/loading.module#LoadingComponentModule', name: 'LoadingComponent', segment: 'loading', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/al/al.module#AlPageModule', name: 'AlPage', segment: 'al', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/at/at.module#AtPageModule', name: 'AtPage', segment: 'at', priority: 'low', defaultHistory: [] },
@@ -27447,18 +27442,18 @@ var AppModule = (function () {
                         { loadChildren: '../pages/gc/gc.module#GcPageModule', name: 'GcPage', segment: 'gc', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/gl/gl.module#GlPageModule', name: 'GlPage', segment: 'gl', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/h/h.module#HPageModule', name: 'HPage', segment: 'h', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/hl/hl.module#HlPageModule', name: 'HlPage', segment: 'hl', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/log/log.module#LogPageModule', name: 'LogPage', segment: 'log', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/lp/lp.module#LpPageModule', name: 'LpPage', segment: 'lp', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/hl/hl.module#HlPageModule', name: 'HlPage', segment: 'hl', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/ls/ls.module#LsPageModule', name: 'LsPage', segment: 'ls', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/m/m.module#MPageModule', name: 'MPage', segment: 'm', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/p/p.module#PPageModule', name: 'PPage', segment: 'p', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/pc/pc.module#PcPageModule', name: 'PcPage', segment: 'pc', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/pf/pf.module#PfPageModule', name: 'PfPage', segment: 'pf', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/pd/pd.module#PdPageModule', name: 'PdPage', segment: 'pd', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/pf/pf.module#PfPageModule', name: 'PfPage', segment: 'pf', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/pl/pl.module#PlPageModule', name: 'PlPage', segment: 'pl', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/r/r.module#RPageModule', name: 'RPage', segment: 'r', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/ps/ps.module#PsPageModule', name: 'PsPage', segment: 'ps', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/r/r.module#RPageModule', name: 'RPage', segment: 'r', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/ss/ss.module#SsPageModule', name: 'SsPage', segment: 'ss', priority: 'low', defaultHistory: [] }
                     ]
                 }),
