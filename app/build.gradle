@@ -37,7 +37,7 @@ buildscript {
 // Allow plugins to declare Maven dependencies via build-extras.gradle.
 allprojects {
     repositories {
-        mavenCentral();
+        mavenCentral()
         jcenter()
         maven {url 'http://developer.huawei.com/repo/'}
     }
@@ -53,11 +53,11 @@ ext {
     apply from: '../CordovaLib/cordova.gradle'
     // The value for android.compileSdkVersion.
     if (!project.hasProperty('cdvCompileSdkVersion')) {
-        cdvCompileSdkVersion = null;
+        cdvCompileSdkVersion = null
     }
     // The value for android.buildToolsVersion.
     if (!project.hasProperty('cdvBuildToolsVersion')) {
-        cdvBuildToolsVersion = null;
+        cdvBuildToolsVersion = null
     }
     // Sets the versionCode to the given value.
     if (!project.hasProperty('cdvVersionCode')) {
@@ -124,8 +124,8 @@ if (ext.cdvReleaseSigningPropertiesFile == null && file('../release-signing.prop
 }
 
 // Cast to appropriate types.
-ext.cdvBuildMultipleApks = cdvBuildMultipleApks == null ? false : cdvBuildMultipleApks.toBoolean();
-ext.cdvVersionCodeForceAbiDigit = cdvVersionCodeForceAbiDigit == null ? false : cdvVersionCodeForceAbiDigit.toBoolean();
+ext.cdvBuildMultipleApks = cdvBuildMultipleApks == null ? false : cdvBuildMultipleApks.toBoolean()
+ext.cdvVersionCodeForceAbiDigit = cdvVersionCodeForceAbiDigit == null ? false : cdvVersionCodeForceAbiDigit.toBoolean()
 ext.cdvMinSdkVersion = cdvMinSdkVersion == null ? defaultMinSdkVersion : Integer.parseInt('' + cdvMinSdkVersion)
 ext.cdvVersionCode = cdvVersionCode == null ? null : Integer.parseInt('' + cdvVersionCode)
 
@@ -133,7 +133,7 @@ def computeBuildTargetName(debugBuild) {
     def ret = 'assemble'
     if (cdvBuildMultipleApks && cdvBuildArch) {
         def arch = cdvBuildArch == 'arm' ? 'armv7' : cdvBuildArch
-        ret += '' + arch.toUpperCase().charAt(0) + arch.substring(1);
+        ret += '' + arch.toUpperCase().charAt(0) + arch.substring(1)
     }
     return ret + (debugBuild ? 'Debug' : 'Release')
 }
@@ -182,8 +182,9 @@ android {
             minSdkVersion cdvMinSdkVersion
         }
     }
+
     lintOptions {
-        abortOnError false;
+        abortOnError false
     }
     // This code exists for Crosswalk and other Native APIs.
     // By default, we multiply the existing version code in the
@@ -250,6 +251,12 @@ android {
             release {
                 signingConfig signingConfigs.release
             }
+            packagingOptions {
+                pickFirst  'META-INF/*'
+                exclude 'org/apache/http/version.properties'
+                exclude 'org/apache/http/client/version.properties'
+                exclude 'META-INF/LICENSE'
+            }
         }
         addSigningProps(cdvReleaseSigningPropertiesFile, signingConfigs.release)
     }
@@ -284,18 +291,17 @@ dependencies {
     compile 'com.android.support:support-v4:26.+'
     // SUB-PROJECT DEPENDENCIES END
     compile 'com.huawei.android.hms:push:2.6.3.306'
-    implementation 'com.rabbitmq:amqp-client:4.11.2'
 }
 
 def promptForReleaseKeyPassword() {
     if (!cdvReleaseSigningPropertiesFile) {
-        return;
+        return
     }
     if ('__unset'.equals(android.signingConfigs.release.storePassword)) {
         android.signingConfigs.release.storePassword = privateHelpers.promptForPassword('Enter key store password: ')
     }
     if ('__unset'.equals(android.signingConfigs.release.keyPassword)) {
-        android.signingConfigs.release.keyPassword = privateHelpers.promptForPassword('Enter key password: ');
+        android.signingConfigs.release.keyPassword = privateHelpers.promptForPassword('Enter key password: ')
     }
 }
 
@@ -327,7 +333,7 @@ def addSigningProps(propsFilePath, signingConfig) {
     signingConfig.storePassword = props.get('storePassword', props.get('key.store.password', signingConfig.storePassword))
     def storeType = props.get('storeType', props.get('key.store.type', ''))
     if (!storeType) {
-        def filename = storeFile.getName().toLowerCase();
+        def filename = storeFile.getName().toLowerCase()
         if (filename.endsWith('.p12') || filename.endsWith('.pfx')) {
             storeType = 'pkcs12'
         } else {
