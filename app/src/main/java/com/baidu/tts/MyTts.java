@@ -80,7 +80,7 @@ public class MyTts {
 
 
         // 1. 获取实例
-        // mSpeechSynthesizer =  new NonBlockSyntherizer(context, initConfig, null);
+       // mSpeechSynthesizer =  new NonBlockSyntherizer(context, initConfig, null);
         mSpeechSynthesizer =  new MySyntherizer(context, initConfig, null);
 
 
@@ -98,15 +98,15 @@ public class MyTts {
         new Thread(new Runnable(){
             @Override
             public void run() {
-                if (mSpeechSynthesizer == null) {
-                    print("[ERROR], 初始化失败");
-                    return;
-                }
-                int result = mSpeechSynthesizer.speak(Text);
+        if (mSpeechSynthesizer == null) {
+            print("[ERROR], 初始化失败");
+            return;
+        }
+        int result = mSpeechSynthesizer.speak(Text);
 
-                print("合成并播放");
-                checkResult(result, "speak");
-            }
+        print("合成并播放");
+        checkResult(result, "speak");
+    }
         }).start();
 
     }

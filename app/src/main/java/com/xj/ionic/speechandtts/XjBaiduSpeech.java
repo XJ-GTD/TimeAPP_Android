@@ -40,7 +40,7 @@ public class XjBaiduSpeech extends CordovaPlugin {
         }
         cordovaActivity = cordova.getActivity();
 
-    }
+        }
 
 
 
@@ -52,17 +52,17 @@ public class XjBaiduSpeech extends CordovaPlugin {
         cordovaActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if (action.equals("start")) {
+        if (action.equals("start")) {
                     recongnizer.start();
                 } else if (action.equals("stop")) {
-                    recongnizer.stop();
+            recongnizer.stop();
 
                 } else if (action.equals("cancel")) {
-                    recongnizer.cancel();
+            recongnizer.cancel();
                 } else if (action.equals("release")) {
-                    recongnizer.release();
-                }
-            }
+            recongnizer.release();
+        }
+    }
         });
 
 
@@ -77,7 +77,7 @@ public class XjBaiduSpeech extends CordovaPlugin {
      * android 6.0 以上需要动态申请权限
      */
     private void initPermission() {
-        String permissions[] = {Manifest.permission.RECORD_AUDIO,
+        String[] permissions = {Manifest.permission.RECORD_AUDIO,
                 Manifest.permission.ACCESS_NETWORK_STATE,
                 Manifest.permission.INTERNET,
                 Manifest.permission.READ_PHONE_STATE,
@@ -92,7 +92,7 @@ public class XjBaiduSpeech extends CordovaPlugin {
 
             }
         }
-        String tmpList[] = new String[toApplyList.size()];
+        String[] tmpList = new String[toApplyList.size()];
         if (!toApplyList.isEmpty()) {
             ActivityCompat.requestPermissions(cordova.getActivity(), toApplyList.toArray(tmpList), 123);
         }
