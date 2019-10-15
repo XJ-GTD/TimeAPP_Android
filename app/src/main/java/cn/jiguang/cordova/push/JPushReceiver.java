@@ -1,6 +1,5 @@
 package cn.jiguang.cordova.push;
 
-import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -11,24 +10,11 @@ import java.util.List;
 import java.util.Map;
 
 import cn.jpush.android.api.JPushInterface;
-import com.baidu.tts.MyTts;
-import com.xj.ionic.speechandtts.listener.XjTtsListener;
 
 public class JPushReceiver extends BroadcastReceiver {
 
     private static final List<String> IGNORED_EXTRAS_KEYS = Arrays.asList("cn.jpush.android.TITLE",
             "cn.jpush.android.MESSAGE", "cn.jpush.android.APPKEY", "cn.jpush.android.NOTIFICATION_CONTENT_TITLE","key_show_entity","platform");
-
-//
-//    protected String appId = "14502702";
-//
-//    protected String appKey = "6YvlNRGZ5I4CkA715XnVyoSm";
-//
-//    protected String secretKey = "9oHZPMLgc0BM9a4m3DhpHUhGSqYvsrAF";
-//
-//
-//    private MyTts tts;
-
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -80,9 +66,6 @@ public class JPushReceiver extends BroadcastReceiver {
 
         Map<String, Object> extras = getNotificationExtras(intent);
         JPushPlugin.notificationExtras = extras;
-
-//        tts = new MyTts(context, new XjTtsListener(null), appId, appKey, secretKey);
-//        tts.speak(JPushPlugin.notificationTitle + "哈哈哈");
 
         JPushPlugin.transmitNotificationReceive(title, alert, extras);
     }

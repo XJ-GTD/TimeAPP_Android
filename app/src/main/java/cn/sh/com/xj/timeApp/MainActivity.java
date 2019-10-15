@@ -46,79 +46,8 @@ public class MainActivity extends CordovaActivity
             }
         });
 
-//
-
-
-//        Calendar cl = Calendar.getInstance();
-//        cl.add(Calendar.SECOND,60);
-//        Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM)
-//
-//
-//                //闹钟的小时
-//                .putExtra(AlarmClock.EXTRA_HOUR, cl.get(Calendar.HOUR_OF_DAY))
-//                //闹钟的分钟
-//                .putExtra(AlarmClock.EXTRA_MINUTES, cl.get(Calendar.MINUTE))
-//                //响铃时提示的信息
-//                .putExtra(AlarmClock.EXTRA_MESSAGE, "试一下222")
-//                //用于指定该闹铃触发时是否振动
-//                .putExtra(AlarmClock.EXTRA_VIBRATE, true)
-//                //一个 content: URI，用于指定闹铃使用的铃声，也可指定 VALUE_RINGTONE_SILENT 以不使用铃声。
-//                //如需使用默认铃声，则无需指定此 extra。
-//                //一个 ArrayList，其中包括应重复触发该闹铃的每个周日。
-//                // 每一天都必须使用 Calendar 类中的某个整型值（如 MONDAY）进行声明。
-//                //如果为true，则调用startActivity()不会进入手机的闹钟设置界面
-//                .putExtra(AlarmClock.EXTRA_SKIP_UI, true);
-//        Intent intent = new Intent(AlarmClock.ACTION_SET_TIMER)
-//
-//            //闹钟的小时
-//            .putExtra(AlarmClock.EXTRA_LENGTH, 20)
-//            //响铃时提示的信息
-//            .putExtra(AlarmClock.EXTRA_MESSAGE, "试一下")
-//            //用于指定该闹铃触发时是否振动
-//            .putExtra(AlarmClock.EXTRA_VIBRATE, true)
-//            //一个 content: URI，用于指定闹铃使用的铃声，也可指定 VALUE_RINGTONE_SILENT 以不使用铃声。
-//            //如需使用默认铃声，则无需指定此 extra。
-//            //一个 ArrayList，其中包括应重复触发该闹铃的每个周日。
-//            // 每一天都必须使用 Calendar 类中的某个整型值（如 MONDAY）进行声明。
-//            //如果为true，则调用startActivity()不会进入手机的闹钟设置界面
-//            .putExtra(AlarmClock.EXTRA_SKIP_UI, true);
-//        Intent intent = new Intent(AlarmClock.ACTION_DISMISS_ALARM)
-//
-//                //闹钟的小时
-//                .putExtra(AlarmClock.EXTRA_ALARM_SEARCH_MODE, AlarmClock.ALARM_SEARCH_MODE_NEXT)
-//                //响铃时提示的信息
-////                .putExtra(AlarmClock.EXTRA_MESSAGE, "试一下222")
-//                //一个 content: URI，用于指定闹铃使用的铃声，也可指定 VALUE_RINGTONE_SILENT 以不使用铃声。
-//                //如需使用默认铃声，则无需指定此 extra。
-//                //一个 ArrayList，其中包括应重复触发该闹铃的每个周日。
-//                // 每一天都必须使用 Calendar 类中的某个整型值（如 MONDAY）进行声明。
-//                //如果为true，则调用startActivity()不会进入手机的闹钟设置界面
-//                .putExtra(AlarmClock.EXTRA_SKIP_UI, true);
-//        if (intent.resolveActivity(getPackageManager()) != null) {
-//            startActivity(intent);
-//        }
-//
-
-//        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" + "start");
-//
-//        AlarmManager manager =  (AlarmManager)this.getSystemService(Context.ALARM_SERVICE);
-//        Intent it = new Intent(this, BackService.class);
-//
-//        Calendar calendar = Calendar.getInstance();
-//        calendar.setTimeInMillis(System.currentTimeMillis());
-//        calendar.add(Calendar.SECOND, 20);
-//
-//
-//        PendingIntent pi = PendingIntent.getService(
-//                this, 0, it, FLAG_CANCEL_CURRENT);
-//        manager.setRepeating(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),200,pi);
-
-
-//         enable Cordova apps to be started in the background
-
-
+        // enable Cordova apps to be started in the background
         Bundle extras = getIntent().getExtras();
-
         if (extras != null && extras.getBoolean("cdvStartInBackground", false)) {
             moveTaskToBack(true);
         }
@@ -126,5 +55,4 @@ public class MainActivity extends CordovaActivity
         // Set by <content src="index.html" /> in config.xml
         loadUrl(launchUrl);
     }
-
 }

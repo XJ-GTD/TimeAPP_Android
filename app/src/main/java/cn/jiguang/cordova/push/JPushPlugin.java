@@ -3,20 +3,12 @@ package cn.jiguang.cordova.push;
 import android.app.Activity;
 import android.app.AppOpsManager;
 import android.app.NotificationManager;
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
 import android.content.pm.ApplicationInfo;
 import android.os.Build;
-import android.os.IBinder;
 import android.text.TextUtils;
 import android.util.Log;
-import cn.jpush.android.api.BasicPushNotificationBuilder;
-import cn.jpush.android.api.JPushInterface;
-import cn.jpush.android.api.TagAliasCallback;
-import cn.jpush.android.data.JPushLocalNotification;
-import com.xj.ionic.service.MQService;
+
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaPlugin;
@@ -28,16 +20,23 @@ import org.json.JSONObject;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import cn.jpush.android.api.BasicPushNotificationBuilder;
+import cn.jpush.android.api.JPushInterface;
+import cn.jpush.android.api.TagAliasCallback;
+import cn.jpush.android.data.JPushLocalNotification;
 
 public class JPushPlugin extends CordovaPlugin {
 
     private static final String TAG = JPushPlugin.class.getSimpleName();
 
     private Context mContext;
-    // Service that keeps the app awake
-    private MQService service;
 
     private static JPushPlugin instance;
     private static Activity cordovaActivity;
@@ -55,21 +54,6 @@ public class JPushPlugin extends CordovaPlugin {
     public JPushPlugin() {
         instance = this;
     }
-
-    // Used to (un)bind the service to with the activity
-    private final ServiceConnection connection = new ServiceConnection() {
-        @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            MQService.MQBinder binder =
-                    (MQService.MQBinder) service;
-            instance.service = binder.getService();
-        }
-
-        @Override
-        public void onServiceDisconnected(ComponentName name) {
-            // fireEvent(BackgroundMode.Event.FAILURE, "'service disconnected'");
-        }
-    };
 
     @Override
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
@@ -89,11 +73,6 @@ public class JPushPlugin extends CordovaPlugin {
         if (notificationAlert != null) {
             transmitNotificationReceive(notificationTitle, notificationAlert, notificationExtras);
         }
-
-        Intent intent = new Intent(
-                this.mContext, MQService.class);
-
-        this.mContext.bindService(intent,connection, Context.BIND_AUTO_CREATE);
     }
 
     public void onResume(boolean multitasking) {
@@ -195,7 +174,7 @@ public class JPushPlugin extends CordovaPlugin {
         });
     }
 
-   public static void transmitNotificationOpen(String title, String alert, Map<String, Object> extras) {
+    static void transmitNotificationOpen(String title, String alert, Map<String, Object> extras) {
         if (instance == null) {
             return;
         }
@@ -212,7 +191,7 @@ public class JPushPlugin extends CordovaPlugin {
         JPushPlugin.openNotificationAlert = null;
     }
 
-    public   static void transmitNotificationReceive(String title, String alert, Map<String, Object> extras) {
+    static void transmitNotificationReceive(String title, String alert, Map<String, Object> extras) {
         if (instance == null) {
             return;
         }
@@ -229,7 +208,7 @@ public class JPushPlugin extends CordovaPlugin {
         JPushPlugin.notificationAlert = null;
     }
 
-    public  static void transmitReceiveRegistrationId(String rId) {
+    static void transmitReceiveRegistrationId(String rId) {
         if (instance == null) {
             return;
         }
