@@ -19,12 +19,6 @@ import java.util.Map;
 
 public class HuaweiPushReceiver extends PushReceiver {
     private static final String TAG = "HuaweiPushReceiver";
-    protected String appId = "14502702";
-    protected String appKey = "6YvlNRGZ5I4CkA715XnVyoSm";
-    protected String secretKey = "9oHZPMLgc0BM9a4m3DhpHUhGSqYvsrAF";
-
-    private MyTts tts;
-
     public HuaweiPushReceiver() {
     }
     @Override
@@ -37,37 +31,19 @@ public class HuaweiPushReceiver extends PushReceiver {
     }
     @Override
     public void onPushMsg(Context context, byte[] msg, String token) {
-
-        try {
-            //开发者可以自己解析消息内容，然后做相应的处理
-            tts = new MyTts(context, new XjTtsListener(null), appId, appKey, secretKey);
-            String content = new String(msg, "UTF-8");
-            Log.i(TAG, "收到PUSH透传消息,消息内容为:" + content);
-            tts.speak(content);
-            Map<String,Object> extra = new HashMap<>();
-            extra.put("alert","alert(1)");
-            JPushPlugin.transmitNotificationReceive("","",extra);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-//    @Override
-//    public void onEvent(Context context, Event event, Bundle extras) {
 //
-//        Log.i(TAG, "收到通知栏消息点击事件,notifyId:11111");
-//        if (Event.NOTIFICATION_OPENED.equals(event) || Event.NOTIFICATION_CLICK_BTN.equals(event)) {
-//            int notifyId = extras.getInt(BOUND_KEY.pushNotifyId, 0);
-//            Log.i(TAG, "收到通知栏消息点击事件,notifyId:" + notifyId);
-//            if (0 != notifyId) {
-//                NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-//                manager.cancel(notifyId);
-//            }
+//        try {
+//            //开发者可以自己解析消息内容，然后做相应的处理
+//            tts = new MyTts(context, new XjTtsListener(null), appId, appKey, secretKey);
+//            String content = new String(msg, "UTF-8");
+//            Log.i(TAG, "收到PUSH透传消息,消息内容为:" + content);
+//            tts.speak(content);
+//            Map<String,Object> extra = new HashMap<>();
+//            JPushPlugin.transmitNotificationReceive("","",extra);
+//        } catch (Exception e) {
+//            e.printStackTrace();
 //        }
-//
-//
-//        super.onEvent(context, event, extras);
-//    }
+    }
 
     public void onEvent(Context context, Event event, Bundle extras) {
         Log.i(TAG, "收到通知栏消息点击事件,notifyId:11111");

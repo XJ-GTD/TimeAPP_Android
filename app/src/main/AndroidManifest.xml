@@ -1,111 +1,100 @@
 <?xml version='1.0' encoding='utf-8'?>
-<manifest android:hardwareAccelerated="true" android:versionCode="905" android:versionName="0.9.3" package="cn.sh.com.xj.timeApp" xmlns:android="http://schemas.android.com/apk/res/android">
-    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true" android:xlargeScreens="true" />
+<manifest xmlns:tools="http://schemas.android.com/tools" android:hardwareAccelerated="true" android:versionCode="905"
+          android:versionName="1.9.3" package="cn.sh.com.xj.timeApp"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true"
+                      android:resizeable="true" android:smallScreens="true" android:xlargeScreens="true"/>
 
-    <application  android:name="cn.sh.com.xj.timeApp.TimeApplication" android:hardwareAccelerated="true" android:icon="@mipmap/icon" android:label="@string/app_name" android:supportsRtl="true">
-        <activity android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale" android:label="@string/activity_name" android:launchMode="singleInstance" android:name="MainActivity" android:theme="@android:style/Theme.DeviceDefault.NoActionBar" android:windowSoftInputMode="adjustResize">
+    <application android:name="cn.sh.com.xj.timeApp.TimeApplication" android:hardwareAccelerated="true"
+                 android:icon="@mipmap/icon" android:label="@string/app_name" android:supportsRtl="true">
+        <activity android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale"
+                  android:label="@string/activity_name" android:launchMode="singleInstance" android:name="MainActivity"
+                  android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
+                  android:windowSoftInputMode="adjustResize">
             <intent-filter android:label="@string/launcher_name">
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:configChanges="orientation|keyboardHidden" android:exported="false" android:name="cn.jpush.android.ui.PushActivity"  android:launchMode="standard" android:theme="@android:style/Theme.Translucent.NoTitleBar">
-            <intent-filter>
-                <action android:name="cn.jpush.android.ui.PushActivity" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="cn.sh.com.xj.timeApp" />
-            </intent-filter>
+        <activity android:exported="false" android:launchMode="singleInstance"
+                  android:name="de.appplant.cordova.plugin.localnotification.ClickReceiver"
+                  android:theme="@android:style/Theme.Translucent"/>
+
+
+        <!--<activity android:name=".OpendeviceActivity"/>-->
+
+        <!-- 使用 HMSAgent 代码接入HMSSDK 需要注册的activity | Use hmsagent code to access HMSSDK activity that requires registration-->
+        <activity
+                android:name="com.huawei.android.hms.agent.common.HMSAgentActivity"
+                android:configChanges="orientation|locale|screenSize|layoutDirection|fontScale"
+                android:excludeFromRecents="true"
+                android:exported="false"
+                android:hardwareAccelerated="true"
+                android:theme="@android:style/Theme.Translucent">
+            <meta-data
+                    android:name="hwc-theme"
+                    android:value="androidhwext:style/Theme.Emui.Translucent"/>
         </activity>
-        <activity android:configChanges="orientation|keyboardHidden" android:exported="false" android:name="cn.jpush.android.ui.PopWinActivity" android:theme="@style/MyDialogStyle">
-            <intent-filter>
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="cn.sh.com.xj.timeApp" />
-            </intent-filter>
+
+
+        <!-- 接入HMSSDK 需要注册的activity | Access HMSSDK activity to be registered-->
+        <activity
+                android:name="com.huawei.hms.activity.BridgeActivity"
+                android:configChanges="orientation|locale|screenSize|layoutDirection|fontScale"
+                android:excludeFromRecents="true"
+                android:exported="false"
+                android:hardwareAccelerated="true"
+                android:theme="@android:style/Theme.Translucent">
+            <meta-data
+                    android:name="hwc-theme"
+                    android:value="androidhwext:style/Theme.Emui.Translucent"/>
         </activity>
-        <activity android:exported="false" android:launchMode="singleInstance" android:name="de.appplant.cordova.plugin.localnotification.ClickReceiver" android:theme="@android:style/Theme.Translucent" />
 
-        <service android:name="de.appplant.cordova.plugin.background.ForegroundService" />
-        <service android:enabled="true" android:exported="false" android:name="cn.jpush.android.service.PushService" android:process=":remote">
-            <intent-filter>
-                <action android:name="cn.jpush.android.intent.REGISTER" />
-                <action android:name="cn.jpush.android.intent.REPORT" />
-                <action android:name="cn.jpush.android.intent.PushService" />
-                <action android:name="cn.jpush.android.intent.PUSH_TIME" />
-            </intent-filter>
-        </service>
+        <!-- 接入HMSSDK 需要注册的activity | Access HMSSDK activity to be registered-->
+        <activity
+                android:name="com.huawei.updatesdk.service.otaupdate.AppUpdateActivity"
+                android:configChanges="orientation|screenSize"
+                android:exported="false"
+                android:theme="@style/upsdkDlDialog">
+            <meta-data
+                    android:name="hwc-theme"
+                    android:value="androidhwext:style/Theme.Emui.Translucent.NoTitleBar"/>
+        </activity>
 
-        <service android:enabled="true" android:exported="false" android:name="com.baidu.speech.aidl.EventRecognitionService" android:process=":EventRecognitionService">
-        </service>
+        <!-- 接入HMSSDK 需要注册的activity | Access HMSSDK activity to be registered-->
+        <activity
+                android:name="com.huawei.updatesdk.support.pm.PackageInstallerActivity"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:exported="false"
+                android:theme="@style/upsdkDlDialog">
+            <meta-data
+                    android:name="hwc-theme"
+                    android:value="androidhwext:style/Theme.Emui.Translucent"/>
+        </activity>
 
-        <service android:enabled="true" android:exported="false" android:name="com.xj.ionic.service.MQService">
-        </service>
+        <meta-data android:name="JPUSH_CHANNEL" android:value="cn.sh.com.xj.timeApp"/>
+        <meta-data android:name="JPUSH_APPKEY" android:value="e8b1f201b4e0cc102f665238"/>
+        <meta-data android:name="com.baidu.speech.APP_ID" android:value="14502702"/>
+        <meta-data android:name="com.baidu.speech.API_KEY" android:value="6YvlNRGZ5I4CkA715XnVyoSm"/>
+        <meta-data android:name="com.baidu.speech.SECRET_KEY" android:value="9oHZPMLgc0BM9a4m3DhpHUhGSqYvsrAF"/>
+        <meta-data android:name="com.huawei.hms.client.appid" android:value="appid=100786455"/>
 
-
-        <service android:enabled="true" android:exported="true" android:name="cn.jpush.android.service.DaemonService" android:process=":DaemonService" >
-            <intent-filter>
-                <action android:name="cn.jpush.android.intent.DaemonService" />
-                <category android:name="cn.sh.com.xj.timeApp" />
-            </intent-filter>
-        </service>
-
-        <service android:enabled="true" android:exported="false" android:name="cn.jpush.android.service.DownloadService" android:process=":DownloadService" />
-        <provider android:authorities="${applicationId}.provider" android:exported="false" android:grantUriPermissions="true" android:name="de.appplant.cordova.plugin.notification.util.AssetProvider">
-            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/localnotification_provider_paths" />
+        <provider android:authorities="${applicationId}.provider" android:exported="false"
+                  android:grantUriPermissions="true" android:name="org.apache.cordova.camera.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
+                       android:resource="@xml/camera_provider_paths"/>
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
+                       android:resource="@xml/localnotification_provider_paths"/>
         </provider>
-        <provider android:authorities="cn.sh.com.xj.timeApp.DataProvider" android:exported="true" android:name="cn.jpush.android.service.DataProvider" />
 
-        <provider android:authorities="cn.sh.com.xj.timeApp.DownloadProvider" android:exported="true" android:name="cn.jpush.android.service.DownloadProvider" />
+        <provider android:authorities="${applicationId}.DataProvider" android:exported="true"
+                  android:name="cn.jpush.android.service.DataProvider"/>
 
-
-
-        <receiver android:exported="false" android:name="de.appplant.cordova.plugin.localnotification.TriggerReceiver" />
-        <receiver android:exported="false" android:name="de.appplant.cordova.plugin.localnotification.ClearReceiver" />
-
-           <receiver android:enabled="true" android:name="cn.jpush.android.service.PushReceiver">
-            <intent-filter android:priority="1000">
-                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />
-                <category android:name="cn.sh.com.xj.timeApp" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.USER_PRESENT" />
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_ADDED" />
-                <action android:name="android.intent.action.PACKAGE_REMOVED" />
-                <data android:scheme="package" />
-            </intent-filter>
-        </receiver>
-        <receiver android:name="cn.jpush.android.service.AlarmReceiver" />
-        <receiver android:enabled="true" android:exported="false" android:name="cn.jiguang.cordova.push.JPushEventReceiver">
-            <intent-filter>
-                <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
-                <category android:name="cn.sh.com.xj.timeApp" />
-            </intent-filter>
-        </receiver>
-        <receiver android:enabled="true" android:exported="false" android:name="cn.jiguang.cordova.push.JPushReceiver">
-            <intent-filter>
-                <action android:name="cn.jpush.android.intent.REGISTRATION" />
-                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
-                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
-                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
-                <action android:name="cn.jpush.android.intent.CONNECTION" />
-                <category android:name="cn.sh.com.xj.timeApp" />
-            </intent-filter>
-        </receiver>
-        <meta-data android:name="JPUSH_CHANNEL" android:value="cn.sh.com.xj.timeApp" />
-        <meta-data android:name="JPUSH_APPKEY" android:value="e8b1f201b4e0cc102f665238" />
-        <meta-data android:name="com.baidu.speech.APP_ID" android:value="14502702" />
-        <meta-data android:name="com.baidu.speech.API_KEY" android:value="6YvlNRGZ5I4CkA715XnVyoSm" />
-        <meta-data android:name="com.baidu.speech.SECRET_KEY" android:value="9oHZPMLgc0BM9a4m3DhpHUhGSqYvsrAF" />
-
-        <meta-data
-                android:name="com.huawei.hms.client.appid"
-                android:value="appid=100786455"/>
-
+        <provider android:authorities="${applicationId}.DownloadProvider" android:exported="true"
+                  android:name="cn.jpush.android.service.DownloadProvider"/>
 
         <!-- 接入HMSSDK 需要注册的provider，authorities 一定不能与其他应用一样，所以这边 cn.sh.com.xj.timeApp 要替换上您应用的包名
-            Access HMSSDK need to register provider,authorities must not be the same as other applications, so this side ${package_name} to replace the package name you applied-->
+          Access HMSSDK need to register provider,authorities must not be the same as other applications, so this side ${package_name} to replace the package name you applied-->
         <provider
                 android:name="com.huawei.hms.update.provider.UpdateProvider"
                 android:authorities="cn.sh.com.xj.timeApp.hms.update.provider"
@@ -121,89 +110,98 @@
                 android:grantUriPermissions="true">
         </provider>
 
-        <!--<activity android:name=".OpendeviceActivity"/>-->
 
-        <!-- 使用 HMSAgent 代码接入HMSSDK 需要注册的activity | Use hmsagent code to access HMSSDK activity that requires registration-->
-        <activity
-                android:name="com.huawei.android.hms.agent.common.HMSAgentActivity"
-                android:configChanges="orientation|locale|screenSize|layoutDirection|fontScale"
-                android:excludeFromRecents="true"
-                android:exported="false"
-                android:hardwareAccelerated="true"
-                android:theme="@android:style/Theme.Translucent" >
-            <meta-data
-                    android:name="hwc-theme"
-                    android:value="androidhwext:style/Theme.Emui.Translucent" />
-        </activity>
-
-
-
-
-        <!-- 接入HMSSDK 需要注册的activity | Access HMSSDK activity to be registered-->
-        <activity
-                android:name="com.huawei.hms.activity.BridgeActivity"
-                android:configChanges="orientation|locale|screenSize|layoutDirection|fontScale"
-                android:excludeFromRecents="true"
-                android:exported="false"
-                android:hardwareAccelerated="true"
-                android:theme="@android:style/Theme.Translucent" >
-            <meta-data
-                    android:name="hwc-theme"
-                    android:value="androidhwext:style/Theme.Emui.Translucent" />
-        </activity>
-
-        <!-- 接入HMSSDK 需要注册的activity | Access HMSSDK activity to be registered-->
-        <activity
-                android:name="com.huawei.updatesdk.service.otaupdate.AppUpdateActivity"
-                android:configChanges="orientation|screenSize"
-                android:exported="false"
-                android:theme="@style/upsdkDlDialog" >
-            <meta-data
-                    android:name="hwc-theme"
-                    android:value="androidhwext:style/Theme.Emui.Translucent.NoTitleBar" />
-        </activity>
-
-        <!-- 接入HMSSDK 需要注册的activity | Access HMSSDK activity to be registered-->
-        <activity
-                android:name="com.huawei.updatesdk.support.pm.PackageInstallerActivity"
-                android:configChanges="orientation|keyboardHidden|screenSize"
-                android:exported="false"
-                android:theme="@style/upsdkDlDialog" >
-            <meta-data
-                    android:name="hwc-theme"
-                    android:value="androidhwext:style/Theme.Emui.Translucent" />
-        </activity>
-
-        <!--&lt;!&ndash; 接入HMSSDK 游戏需要注册的activity | Activity to register when accessing HMSSDK game module using hmsagent code&ndash;&gt;-->
-        <!--<activity-->
-                <!--android:name="com.huawei.appmarket.component.buoycircle.impl.delegete.BuoyBridgeActivity"-->
-                <!--android:configChanges="orientation|locale|screenSize|layoutDirection|fontScale"-->
-                <!--android:excludeFromRecents="true"-->
-                <!--android:exported="false"-->
-                <!--android:hardwareAccelerated="true"-->
-                <!--android:theme="@android:style/Theme.Translucent">-->
-            <!--<meta-data-->
-                    <!--android:name="hwc-theme"-->
-                    <!--android:value="androidhwext:style/Theme.Emui.Translucent" />-->
-        <!--</activity>-->
+        <service android:enabled="true" android:exported="false"
+                 android:name="cn.jpush.android.service.DownloadService"/>
+        <service android:enabled="true" android:exported="false"
+                 android:name="com.xiaoji.android.rabbitmq.RabbitMQClientService"
+                 android:permission="android.permission.INTERNET"/>
+        <service android:enabled="true" android:exported="false" android:name="cn.jpush.android.service.PushService"
+                 android:process=":remote">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER"/>
+                <action android:name="cn.jpush.android.intent.REPORT"/>
+                <action android:name="cn.jpush.android.intent.PushService"/>
+                <action android:name="cn.jpush.android.intent.PUSH_TIME"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:exported="true" android:name="cn.jpush.android.service.DaemonService">
+            <intent-filter android:priority="1000">
+                <action android:name="cn.jpush.android.intent.DaemonService"/>
+                <category android:name="${applicationId}"/>
+            </intent-filter>
+        </service>
+        <service android:name="de.appplant.cordova.plugin.background.ForegroundService"/>
+        <!--接入HMSSDK PUSH模块需要注册该service，不需要开发者处理-->
+        <service
+                android:name="com.huawei.hms.support.api.push.service.HmsMsgService"
+                android:enabled="true"
+                android:exported="true"
+                android:process=":pushservice">
+            <intent-filter>
+                <action android:name="com.huawei.push.msg.NOTIFY_MSG"/>
+                <action android:name="com.huawei.push.msg.PASSBY_MSG"/>
+            </intent-filter>
+        </service>
 
 
+        <!-- 接入HMSSDK 需要注册的应用下载服务 | Access HMSSDK need to register app download service-->
+        <service android:name="com.huawei.updatesdk.service.deamon.download.DownloadService"
+                 android:exported="false"/>
 
+
+        <receiver android:exported="false" android:name="de.appplant.cordova.plugin.localnotification.TriggerReceiver"/>
+        <receiver android:exported="false" android:name="de.appplant.cordova.plugin.localnotification.ClearReceiver"/>
+        <receiver android:name="cn.jpush.android.service.AlarmReceiver"/>
+
+        <receiver android:enabled="true" android:name="cn.jpush.android.service.PushReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY"/>
+                <category android:name="cn.sh.com.xj.timeApp"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:enabled="true" android:exported="false"
+                  android:name="cn.jiguang.cordova.push.JPushEventReceiver">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE"/>
+                <category android:name="cn.sh.com.xj.timeApp"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="cn.jiguang.cordova.push.JPushReceiver">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION"/>
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED"/>
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED"/>
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED"/>
+                <action android:name="cn.jpush.android.intent.CONNECTION"/>
+                <category android:name="cn.sh.com.xj.timeApp"/>
+            </intent-filter>
+        </receiver>
         <!-- 接入HMSSDK PUSH模块需要注册，第三方相关 :接收Push消息（注册、透传消息、通知栏点击事件）广播，
-                此receiver类需要开发者自己创建并继承com.huawei.hms.support.api.push.PushReceiver类，
-                参考示例代码中的类：com.huawei.hmsagent.HuaweiPushRevicer
-        cn.sh.com.xj.timeApp 要替换上您应用的包名-->
+              此receiver类需要开发者自己创建并继承com.huawei.hms.support.api.push.PushReceiver类，
+              参考示例代码中的类：com.huawei.hmsagent.HuaweiPushRevicer
+      cn.sh.com.xj.timeApp 要替换上您应用的包名-->
         <receiver android:name="cn.sh.com.xj.timeApp.huaweiagent.HuaweiPushReceiver"
                   android:permission="cn.sh.com.xj.timeApp.permission.PROCESS_PUSH_MSG">
             <intent-filter>
                 <!-- 必须,用于接收token -->
-                <action android:name="com.huawei.android.push.intent.REGISTRATION" />
+                <action android:name="com.huawei.android.push.intent.REGISTRATION"/>
                 <!-- 必须, 用于接收透传消息 -->
-                <action android:name="com.huawei.android.push.intent.RECEIVE" />
+                <action android:name="com.huawei.android.push.intent.RECEIVE"/>
                 <!-- 必须, 用于接收通知栏消息点击事件 此事件不需要开发者处理，只需注册就可以-->
                 <action android:name="com.huawei.intent.action.PUSH_DELAY_NOTIFY"/>
                 <!-- 用于点击通知栏或通知栏上的按钮后触发onEvent回调 -->
-                <action android:name="com.huawei.android.push.intent.CLICK" />
+                <action android:name="com.huawei.android.push.intent.CLICK"/>
             </intent-filter>
         </receiver>
 
@@ -213,30 +211,47 @@
                 参考示例代码中的类：com.huawei.hmsagent.HuaweiPushRevicer
         cn.sh.com.xj.timeApp 要替换上您应用的包名-->
         <!--<receiver android:name="cn.sh.com.xj.timeApp.huaweiagent.HuaweiPushReceiver">-->
-            <!--<intent-filter>-->
-                <!--&lt;!&ndash; 用于点击通知栏或通知栏上的按钮后触发onEvent回调 &ndash;&gt;-->
-                <!--<action android:name="com.huawei.android.push.intent.CLICK" />-->
-                <!--&lt;!&ndash; 查看push通道是否连接, 不查看则不需要 &ndash;&gt;-->
-                <!--<action android:name="com.huawei.intent.action.PUSH_STATE"/>-->
-            <!--</intent-filter>-->
+        <!--<intent-filter>-->
+        <!--&lt;!&ndash; 用于点击通知栏或通知栏上的按钮后触发onEvent回调 &ndash;&gt;-->
+        <!--<action android:name="com.huawei.android.push.intent.CLICK" />-->
+        <!--&lt;!&ndash; 查看push通道是否连接, 不查看则不需要 &ndash;&gt;-->
+        <!--<action android:name="com.huawei.intent.action.PUSH_STATE"/>-->
+        <!--</intent-filter>-->
         <!--</receiver>-->
 
-        <!--接入HMSSDK PUSH模块需要注册该service，不需要开发者处理-->
-        <service
-                android:name="com.huawei.hms.support.api.push.service.HmsMsgService"
-                android:enabled="true"
-                android:exported="true"
-                android:process=":pushservice">
+        <activity android:configChanges="orientation|keyboardHidden" android:exported="false"
+                  android:name="cn.jpush.android.ui.PushActivity"
+                  android:theme="@android:style/Theme.Translucent.NoTitleBar">
             <intent-filter>
-                <action android:name="com.huawei.push.msg.NOTIFY_MSG" />
-                <action android:name="com.huawei.push.msg.PASSBY_MSG" />
+                <action android:name="cn.jpush.android.ui.PushActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="cn.sh.com.xj.timeApp"/>
             </intent-filter>
-        </service>
+        </activity>
+        <activity android:configChanges="orientation|keyboardHidden" android:exported="false"
+                  android:name="cn.jpush.android.ui.PopWinActivity" android:theme="@style/MyDialogStyle">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="cn.sh.com.xj.timeApp"/>
+            </intent-filter>
+        </activity>
+
+        <!--&lt;!&ndash; 接入HMSSDK 游戏需要注册的activity | Activity to register when accessing HMSSDK game module using hmsagent code&ndash;&gt;-->
+        <!--<activity-->
+        <!--android:name="com.huawei.appmarket.component.buoycircle.impl.delegete.BuoyBridgeActivity"-->
+        <!--android:configChanges="orientation|locale|screenSize|layoutDirection|fontScale"-->
+        <!--android:excludeFromRecents="true"-->
+        <!--android:exported="false"-->
+        <!--android:hardwareAccelerated="true"-->
+        <!--android:theme="@android:style/Theme.Translucent">-->
+        <!--<meta-data-->
+        <!--android:name="hwc-theme"-->
+        <!--android:value="androidhwext:style/Theme.Emui.Translucent" />-->
+        <!--</activity>-->
 
 
-        <!-- 接入HMSSDK 需要注册的应用下载服务 | Access HMSSDK need to register app download service-->
-        <service android:name="com.huawei.updatesdk.service.deamon.download.DownloadService"
-                 android:exported="false"/>
+
+
 
         <!--<service android:enabled="true" android:exported="true" android:name="cn.jpush.android.service.DaemonSpeakerService" android:process=":DaemonSpeakerService" >-->
         <!--<intent-filter>-->
@@ -263,35 +278,44 @@
         <!--</intent-filter>-->
         <!--</receiver>-->
     </application>
-    <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="27" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-    <uses-permission android:name="android.permission.READ_CALENDAR" />
-    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <permission android:name="cn.sh.com.xj.timeApp.permission.JPUSH_MESSAGE" android:protectionLevel="signature" />
-    <uses-permission android:name="cn.sh.com.xj.timeApp.permission.JPUSH_MESSAGE" />
-    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="27"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-feature android:name="android.hardware.location.gps"/>
+    <permission android:name="cn.sh.com.xj.timeApp.permission.MESSAGE_RECEIVED" android:protectionLevel="signature"/>
+    <uses-permission android:name="cn.sh.com.xj.timeApp.permission.MESSAGE_RECEIVED"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <permission android:name="cn.sh.com.xj.timeApp.permission.JPUSH_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="cn.sh.com.xj.timeApp.permission.JPUSH_MESSAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" tools:ignore="ProtectedPermissions"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" tools:ignore="ProtectedPermissions"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
 
     <!--HMS-SDK引导升级HMS功能，访问OTA服务器需要网络权限 | HMS-SDK upgrade HMS Feature, access to OTA server requires network privileges-->
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
     <!--HMS-SDK引导升级HMS功能，保存下载的升级包需要SD卡写权限 | HMS-SDK upgrade HMS Feature, save downloaded upgrade pack requires SD card Write permission-->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <!--检测网络状态 | Detecting Network status-->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <!--检测wifi状态 | Detecting WiFi status-->
@@ -307,10 +331,7 @@
             android:protectionLevel="signatureOrSystem"/>
 
     <!--接收PUSH TOKEN的广播以及PUSH消息需要定义该权限 cn.sh.com.xj.timeApp 要替换上您应用的包名 -->
-    <uses-permission android:name="cn.sh.com.xj.timeApp.permission.PROCESS_PUSH_MSG" />
+    <uses-permission android:name="cn.sh.com.xj.timeApp.permission.PROCESS_PUSH_MSG"/>
 
 
 </manifest>
-
-
-
