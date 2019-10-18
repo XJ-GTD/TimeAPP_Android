@@ -1,149 +1,152 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="905" id="cn.sh.com.xj.timeApp" ios-CFBundleVersion="22" version="1.9.3"
-        xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="905" id="cn.sh.com.xj.timeApp" ios-CFBundleVersion="22" version="1.9.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <feature name="NativePageTransitions">
-        <param name="android-package" value="com.telerik.plugins.nativepagetransitions.NativePageTransitions"/>
-        <param name="onload" value="true"/>
+        <param name="android-package" value="com.telerik.plugins.nativepagetransitions.NativePageTransitions" />
+        <param name="onload" value="true" />
     </feature>
     <feature name="Clipboard">
-        <param name="android-package" value="com.verso.cordova.clipboard.Clipboard"/>
+        <param name="android-package" value="com.verso.cordova.clipboard.Clipboard" />
     </feature>
     <feature name="File">
-        <param name="android-package" value="org.apache.cordova.file.FileUtils"/>
-        <param name="onload" value="true"/>
+        <param name="android-package" value="org.apache.cordova.file.FileUtils" />
+        <param name="onload" value="true" />
     </feature>
-    <allow-navigation href="cdvfile:*"/>
+    <allow-navigation href="cdvfile:*" />
     <feature name="CordovaHttpPlugin">
-        <param name="android-package" value="com.silkimen.cordovahttp.CordovaHttpPlugin"/>
+        <param name="android-package" value="com.silkimen.cordovahttp.CordovaHttpPlugin" />
     </feature>
     <feature name="Permissions">
-        <param name="android-package" value="com.android.plugins.Permissions"/>
+        <param name="android-package" value="com.android.plugins.Permissions" />
     </feature>
     <feature name="AppVersion">
-        <param name="android-package" value="uk.co.whiteoctober.cordova.AppVersion"/>
+        <param name="android-package" value="uk.co.whiteoctober.cordova.AppVersion" />
     </feature>
     <feature name="Device">
-        <param name="android-package" value="org.apache.cordova.device.Device"/>
+        <param name="android-package" value="org.apache.cordova.device.Device" />
     </feature>
     <feature name="BackgroundMode">
-        <param name="android-package" value="de.appplant.cordova.plugin.background.BackgroundMode"/>
+        <param name="android-package" value="de.appplant.cordova.plugin.background.BackgroundMode" />
+    </feature>
+    <feature name="BackgroundModeExt">
+        <param name="android-package" value="de.appplant.cordova.plugin.background.BackgroundModeExt" />
     </feature>
     <feature name="XjBaiduSpeech">
-        <param name="android-package" value="com.xj.ionic.speechandtts.XjBaiduSpeech"/>
+        <param name="android-package" value="com.xj.ionic.speechandtts.XjBaiduSpeech" />
     </feature>
     <feature name="XjBaiduTts">
-        <param name="android-package" value="com.xj.ionic.speechandtts.XjBaiduTts"/>
+        <param name="android-package" value="com.xj.ionic.speechandtts.XjBaiduTts" />
     </feature>
     <feature name="XjBaiduWakeUp">
-        <param name="android-package" value="com.xj.ionic.speechandtts.XjBaiduWakeUp"/>
+        <param name="android-package" value="com.xj.ionic.speechandtts.XjBaiduWakeUp" />
     </feature>
     <feature name="Calendar">
-        <param name="android-package" value="nl.xservices.plugins.Calendar"/>
+        <param name="android-package" value="nl.xservices.plugins.Calendar" />
     </feature>
     <feature name="Camera">
-        <param name="android-package" value="org.apache.cordova.camera.CameraLauncher"/>
+        <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
     </feature>
     <feature name="Contacts">
-        <param name="android-package" value="org.apache.cordova.contacts.ContactManager"/>
+        <param name="android-package" value="org.apache.cordova.contacts.ContactManager" />
     </feature>
     <feature name="FileTransfer">
-        <param name="android-package" value="org.apache.cordova.filetransfer.FileTransfer"/>
+        <param name="android-package" value="org.apache.cordova.filetransfer.FileTransfer" />
     </feature>
     <feature name="FilePath">
-        <param name="android-package" value="com.hiddentao.cordova.filepath.FilePath"/>
-        <param name="onload" value="true"/>
+        <param name="android-package" value="com.hiddentao.cordova.filepath.FilePath" />
+        <param name="onload" value="true" />
     </feature>
     <feature name="Geolocation">
-        <param name="android-package" value="org.apache.cordova.geolocation.Geolocation"/>
+        <param name="android-package" value="org.apache.cordova.geolocation.Geolocation" />
     </feature>
     <feature name="InAppBrowser">
-        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser"/>
+        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
     </feature>
     <feature name="LocalNotification">
-        <param name="android-package" value="de.appplant.cordova.plugin.localnotification.LocalNotification"/>
+        <param name="android-package" value="de.appplant.cordova.plugin.localnotification.LocalNotification" />
     </feature>
     <feature name="NativeAudio">
-        <param name="android-package" value="com.rjfun.cordova.plugin.nativeaudio.NativeAudio"/>
+        <param name="android-package" value="com.rjfun.cordova.plugin.nativeaudio.NativeAudio" />
     </feature>
     <feature name="NetworkStatus">
-        <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager"/>
+        <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
     </feature>
     <feature name="RabbitMQPlugin">
-        <param name="android-package" value="com.xiaoji.cordova.plugin.rabbitmq.RabbitMQPlugin"/>
+        <param name="android-package" value="com.xiaoji.cordova.plugin.rabbitmq.RabbitMQPlugin" />
     </feature>
     <feature name="CDVOrientation">
-        <param name="android-package" value="cordova.plugins.screenorientation.CDVOrientation"/>
+        <param name="android-package" value="cordova.plugins.screenorientation.CDVOrientation" />
     </feature>
     <feature name="SplashScreen">
-        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen"/>
-        <param name="onload" value="true"/>
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+        <param name="onload" value="true" />
     </feature>
     <feature name="StatusBar">
-        <param name="android-package" value="org.apache.cordova.statusbar.StatusBar"/>
-        <param name="onload" value="true"/>
+        <param name="android-package" value="org.apache.cordova.statusbar.StatusBar" />
+        <param name="onload" value="true" />
     </feature>
     <feature name="Whitelist">
-        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin"/>
-        <param name="onload" value="true"/>
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
     </feature>
     <feature name="SQLitePlugin">
-        <param name="android-package" value="io.sqlc.SQLitePlugin"/>
+        <param name="android-package" value="io.sqlc.SQLitePlugin" />
     </feature>
     <feature name="Keyboard">
-        <param name="android-package" value="io.ionic.keyboard.IonicKeyboard"/>
-        <param name="onload" value="true"/>
+        <param name="android-package" value="io.ionic.keyboard.IonicKeyboard" />
+        <param name="onload" value="true" />
     </feature>
     <feature name="JPushPlugin">
-        <param name="android-package" value="cn.jiguang.cordova.push.JPushPlugin"/>
-    </feature>
-    <feature name="Badge">
-        <param name="android-package" value="de.appplant.cordova.plugin.badge.Badge"/>
+        <param name="android-package" value="cn.jiguang.cordova.push.JPushPlugin" />
     </feature>
     <feature name="Chooser">
-        <param name="android-package" value="com.cyph.cordova.Chooser"/>
+        <param name="android-package" value="com.cyph.cordova.Chooser" />
     </feature>
-    <allow-navigation href="http://localhost:8080/*"/>
+    <allow-navigation href="http://localhost/*" />
+    <allow-navigation href="https://localhost/*" />
+    <allow-navigation href="ionic://*" />
     <feature name="IonicWebView">
-        <param name="android-package" value="com.ionicframework.cordova.webview.IonicWebView"/>
+        <param name="android-package" value="com.ionicframework.cordova.webview.IonicWebView" />
+    </feature>
+    <feature name="Badge">
+        <param name="android-package" value="de.appplant.cordova.plugin.badge.Badge" />
     </feature>
     <name>冥王星</name>
     <description>管理好他/她的活动, 节约你的时间, 好好享受生活。</description>
     <author email="jy-zhang@zakj.info" href="http://ionicframework.com/">效吉软件</author>
-    <content src="index.html"/>
-    <access origin="*"/>
-    <allow-intent href="http://*/*"/>
-    <allow-intent href="https://*/*"/>
-    <allow-intent href="tel:*"/>
-    <allow-intent href="sms:*"/>
-    <allow-intent href="mailto:*"/>
-    <allow-intent href="geo:*"/>
-    <allow-intent href="market:*"/>
-    <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png"/>
-    <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png"/>
-    <icon density="hdpi" src="resources/android/icon/drawable-hdpi-icon.png"/>
-    <icon density="xhdpi" src="resources/android/icon/drawable-xhdpi-icon.png"/>
-    <icon density="xxhdpi" src="resources/android/icon/drawable-xxhdpi-icon.png"/>
-    <icon density="xxxhdpi" src="resources/android/icon/drawable-xxxhdpi-icon.png"/>
-    <splash density="port-ldpi" src="resources/android/splash/drawable-port-ldpi-screen.png"/>
-    <splash density="port-mdpi" src="resources/android/splash/drawable-port-mdpi-screen.png"/>
-    <splash density="port-hdpi" src="resources/android/splash/drawable-port-hdpi-screen.png"/>
-    <splash density="port-xhdpi" src="resources/android/splash/drawable-port-xhdpi-screen.png"/>
-    <splash density="port-xxhdpi" src="resources/android/splash/drawable-port-xxhdpi-screen.png"/>
-    <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png"/>
-    <preference name="loglevel" value="DEBUG"/>
-    <preference name="KeepRunning" value="true"/>
-    <preference name="AndroidLaunchMode" value="singleInstance"/>
-    <preference name="webView" value="com.ionicframework.cordova.webview.IonicWebViewEngine"/>
-    <preference name="ScrollEnabled" value="false"/>
-    <preference name="android-minSdkVersion" value="16"/>
-    <preference name="BackupWebStorage" value="none"/>
-    <preference name="SplashMaintainAspectRatio" value="true"/>
-    <preference name="SplashShowOnlyFirstTime" value="false"/>
-    <preference name="SplashScreen" value="screen"/>
-    <preference name="ShowSplashScreenSpinner" value="false"/>
-    <preference name="AutoHideSplashScreen" value="true"/>
-    <preference name="SplashScreenDelay" value="1500"/>
-    <preference name="WKSuspendInBackground" value="false"/>
-    <preference name="KeyboardDisplayRequiresUserAction" value="false"/>
-    <preference name="AndroidPersistentFileLocation" value="Compatibility"/>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <allow-intent href="market:*" />
+    <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
+    <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
+    <icon density="hdpi" src="resources/android/icon/drawable-hdpi-icon.png" />
+    <icon density="xhdpi" src="resources/android/icon/drawable-xhdpi-icon.png" />
+    <icon density="xxhdpi" src="resources/android/icon/drawable-xxhdpi-icon.png" />
+    <icon density="xxxhdpi" src="resources/android/icon/drawable-xxxhdpi-icon.png" />
+    <splash density="port-ldpi" src="resources/android/splash/drawable-port-ldpi-screen.png" />
+    <splash density="port-mdpi" src="resources/android/splash/drawable-port-mdpi-screen.png" />
+    <splash density="port-hdpi" src="resources/android/splash/drawable-port-hdpi-screen.png" />
+    <splash density="port-xhdpi" src="resources/android/splash/drawable-port-xhdpi-screen.png" />
+    <splash density="port-xxhdpi" src="resources/android/splash/drawable-port-xxhdpi-screen.png" />
+    <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
+    <preference name="loglevel" value="DEBUG" />
+    <preference name="KeepRunning" value="true" />
+    <preference name="webView" value="com.ionicframework.cordova.webview.IonicWebViewEngine" />
+    <preference name="ScrollEnabled" value="false" />
+    <preference name="android-minSdkVersion" value="16" />
+    <preference name="BackupWebStorage" value="none" />
+    <preference name="SplashMaintainAspectRatio" value="true" />
+    <preference name="SplashShowOnlyFirstTime" value="false" />
+    <preference name="SplashScreen" value="screen" />
+    <preference name="ShowSplashScreenSpinner" value="false" />
+    <preference name="AutoHideSplashScreen" value="true" />
+    <preference name="SplashScreenDelay" value="1500" />
+    <preference name="WKSuspendInBackground" value="false" />
+    <preference name="KeyboardDisplayRequiresUserAction" value="false" />
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
 </widget>

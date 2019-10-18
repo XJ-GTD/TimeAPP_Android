@@ -139,7 +139,7 @@ cordova.define("cordova-sqlite-storage.SQLitePlugin", function(require, exports,
         txLock = txLocks[self.dbname];
         if (!txLock) {
           console.log('cannot start next transaction: database connection is lost');
-          return;
+
         } else if (txLock.queue.length > 0 && !txLock.inProgress) {
           txLock.inProgress = true;
           txLock.queue.shift().start();
@@ -448,7 +448,6 @@ cordova.define("cordova-sqlite-storage.SQLitePlugin", function(require, exports,
         error: handlerFor(i, false)
       };
       tropts.push({
-        qid: null,
         sql: request.sql,
         params: request.params
       });

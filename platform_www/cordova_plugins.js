@@ -195,6 +195,11 @@ module.exports = [
     "pluginId": "cordova-plugin-advanced-http"
   },
   {
+    "id": "cordova-plugin-advanced-http.error-codes",
+    "file": "plugins/cordova-plugin-advanced-http/www/error-codes.js",
+    "pluginId": "cordova-plugin-advanced-http"
+  },
+  {
     "id": "cordova-plugin-advanced-http.global-configs",
     "file": "plugins/cordova-plugin-advanced-http/www/global-configs.js",
     "pluginId": "cordova-plugin-advanced-http"
@@ -278,14 +283,6 @@ module.exports = [
     "clobbers": [
       "cordova.plugins.backgroundMode",
       "plugin.backgroundMode"
-    ]
-  },
-  {
-    "id": "cordova-plugin-badge.Badge",
-    "file": "plugins/cordova-plugin-badge/www/badge.js",
-    "pluginId": "cordova-plugin-badge",
-    "clobbers": [
-      "cordova.plugins.notification.badge"
     ]
   },
   {
@@ -493,6 +490,14 @@ module.exports = [
     ]
   },
   {
+    "id": "cordova-plugin-badge.Badge",
+    "file": "plugins/cordova-plugin-badge/www/badge.js",
+    "pluginId": "cordova-plugin-badge",
+    "clobbers": [
+      "cordova.plugins.notification.badge"
+    ]
+  },
+  {
     "id": "cordova-plugin-local-notification.LocalNotification",
     "file": "plugins/cordova-plugin-local-notification/www/local-notification.js",
     "pluginId": "cordova-plugin-local-notification",
@@ -619,40 +624,40 @@ module.exports.metadata =
 // TOP OF METADATA
 {
   "com.telerik.plugins.nativepagetransitions": "0.6.5",
-  "cordova-clipboard": "1.2.1",
+  "cordova-clipboard": "1.3.0",
   "cordova-plugin-file": "6.0.2",
-  "cordova-plugin-advanced-http": "2.0.11",
-  "cordova-plugin-android-permissions": "1.0.0",
+  "cordova-plugin-advanced-http": "2.2.0",
+  "cordova-plugin-android-permissions": "1.0.2",
   "cordova-plugin-app-version": "0.1.9",
   "cordova-plugin-device": "2.0.3",
-  "cordova-plugin-background-mode": "0.7.2",
-  "cordova-plugin-badge": "0.8.8",
+  "cordova-plugin-background-mode": "0.7.3",
   "cordova-plugin-BaiduSpeechAndTTS": "1.0.0",
   "cordova-plugin-calendar": "5.1.4",
-  "cordova-plugin-camera": "4.1.0",
+  "cordova-plugin-camera": "4.0.3",
   "cordova-plugin-chooser": "1.2.5",
   "cordova-plugin-console": "1.1.0",
   "cordova-plugin-contacts": "3.0.1",
   "cordova-plugin-file-transfer": "1.7.1",
   "cordova-plugin-filepath": "1.5.6",
   "cordova-plugin-geolocation": "4.0.2",
-  "cordova-plugin-inappbrowser": "3.0.0",
-  "cordova-plugin-ionic-webview": "2.3.3",
-  "cordova-plugin-jcore": "1.3.0",
+  "cordova-plugin-inappbrowser": "3.1.0",
+  "cordova-plugin-ionic-webview": "4.1.2",
+  "cordova-plugin-badge": "0.8.8",
   "cordova-plugin-local-notification": "0.9.0-beta.2",
   "cordova-plugin-nativeaudio": "3.0.9",
-  "cordova-plugin-network-information": "2.0.1",
+  "cordova-plugin-network-information": "2.0.2",
+  "cordova-plugin-jcore": "1.3.0",
   "cordova-plugin-rabbitmq": "0.0.1",
   "es6-promise-plugin": "4.2.2",
-  "cordova-plugin-screen-orientation": "3.0.1",
+  "cordova-plugin-screen-orientation": "3.0.2",
   "cordova-plugin-splashscreen": "5.0.3",
   "cordova-plugin-statusbar": "2.4.3",
   "cordova-plugin-vibration": "3.1.1",
   "cordova-plugin-whitelist": "1.3.4",
-  "cordova-sqlite-storage": "2.6.0",
+  "cordova-sqlite-storage": "3.4.0",
   "ionic-plugin-keyboard": "2.2.1",
-  "jpush-phonegap-plugin": "3.6.4",
-  "uk.co.workingedge.cordova.plugin.sqliteporter": "1.1.0"
+  "jpush-phonegap-plugin": "3.7.2",
+  "uk.co.workingedge.cordova.plugin.sqliteporter": "1.1.1"
 };
 // BOTTOM OF METADATA
 });
